@@ -2,7 +2,7 @@
 {
 	"language": "Solidity",
 	"settings": {
-		"viaIR": true,
+		"viaIR": false,
 		"optimizer": {
 			"enabled": true,
 			"runs": 200
