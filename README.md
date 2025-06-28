@@ -1,37 +1,36 @@
 # FinalProject3
 
-A smart contract inspired by Uniswap that allows adding/removing liquidity and swapping ERC20 tokens without relying on any external protocol.
-
-> Final project for Module 3 - Builder Training at EthKipu
-
-## Features
-
-- Add and remove liquidity with proportional calculations
-- Token swaps with 0.3% fee (Uniswap style)
-- Automatic reserve maintenance
-- Price calculations (`getAmountOut`, `_getAmountIn`)
-- Reentrancy protection (`ReentrancyGuard`)
-- Secure token handling with `SafeERC20`
-- Events for on-chain traceability
+**SimpleSwap** is a minimal constant product AMM (Automated Market Maker) smart contract for two ERC20 tokens. It allows users to add/remove liquidity and perform token swaps without intermediaries, following the `x * y = k` invariant, inspired by Uniswap v1.
 
 ---
 
-## Functionalities
+## Overview
 
-### `addLiquidity(...)`
-Allows a provider to add tokens to a pair and receive liquidity tokens representing their share.
+This project was developed as part of the **Module 3 final assignment** in the **EthKipu Builders Solidity course**. It demonstrates core concepts of decentralized exchanges by implementing a simplified version of a liquidity pool from scratch—without relying on Uniswap libraries or external AMM logic.
 
-### `removeLiquidity(...)`
-Allows withdrawing liquidity and receiving the underlying tokens in proportion to the pool.
+---
 
-### `swapExactTokensForTokens(...)`
-Executes a swap between two compatible tokens, applying a 0.3% fee and ensuring a minimum output (`slippage control`).
+## Features
 
-### `getReserves(...)`
-Returns the current reserves of the token pair.
+- **Liquidity Provision**: Deposit two tokens in proportion and receive liquidity tokens.
+- **Liquidity Removal**: Burn liquidity tokens to reclaim proportional shares of the reserves.
+- **Token Swap**: Swap one token for the other based on constant product formula.
+- **Reserve Tracking**: Keeps internal accounting of reserves for both tokens.
+- **Initial Liquidity via Square Root Calculation**: Uses the Babylonian method for accurate initial LP token minting.
 
-### `balanceOf(...)`
-Shows a user's liquidity token balance for a specific pair.
+---
+
+## Contract Architecture
+
+solidity
+constructor(address _tokenA, address _tokenB)
+function addLiquidity(...) external returns (uint256 amountA, uint256 amountB, uint256 liquidity)
+function removeLiquidity(...) external returns (uint256 amountA, uint256 amountB)
+function swap(...) external returns (uint256 amountOut)
+function getReserves() external view returns (uint256, uint256)
+function balanceOf(address user) external view returns (uint256)
+function totalSupply() external view returns (uint256)
+
 
 ---
 
