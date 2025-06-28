@@ -533,7 +533,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"TokenA.sol": "tokenA"
+			"TokenA.sol": "TokenA"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -597,11 +597,11 @@
 			]
 		},
 		"TokenA.sol": {
-			"keccak256": "0x65c0a1dd3e38d18dc4252f1f50847d8cafe51c92b52e4d8a658eb6434ebdfbcc",
+			"keccak256": "0xaf830643e6e7dd3f45b35ed62b3a2b00a55b945891b14c978da04bd5a8aac449",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a7e4b55f801bd493f951b5fc8e5e2c6abe72a80a766cc6019a4ae49573d5d84c",
-				"dweb:/ipfs/QmUSLHzsjb2m35hYq9yZTj7qGu257qffsN3xeK6tUizsWm"
+				"bzz-raw://bd1ea34c303e62ce35a906cf62682b69093bcbbf0bae79f8ee42aea7dbf2d3f7",
+				"dweb:/ipfs/Qmd7MV1UYhCPeHkTNkmCcJHrw1FHTKcqHmp2fJwpk13phF"
 			]
 		}
 	},

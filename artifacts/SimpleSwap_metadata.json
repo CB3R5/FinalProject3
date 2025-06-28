@@ -9,6 +9,22 @@
 				"inputs": [
 					{
 						"internalType": "address",
+						"name": "_tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_tokenB",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
 						"name": "token",
 						"type": "address"
 					}
@@ -22,31 +38,19 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "token0",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "token1",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "provider",
 						"type": "address"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount0",
+						"name": "amountA",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount1",
+						"name": "amountB",
 						"type": "uint256"
 					},
 					{
@@ -65,31 +69,19 @@
 					{
 						"indexed": true,
 						"internalType": "address",
-						"name": "token0",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "token1",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
 						"name": "provider",
 						"type": "address"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount0",
+						"name": "amountA",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amount1",
+						"name": "amountB",
 						"type": "uint256"
 					},
 					{
@@ -105,18 +97,6 @@
 			{
 				"anonymous": false,
 				"inputs": [
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "tokenIn",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"internalType": "address",
-						"name": "tokenOut",
-						"type": "address"
-					},
 					{
 						"indexed": true,
 						"internalType": "address",
@@ -136,21 +116,11 @@
 						"type": "uint256"
 					}
 				],
-				"name": "TokensSwapped",
+				"name": "Swap",
 				"type": "event"
 			},
 			{
 				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					},
 					{
 						"internalType": "uint256",
 						"name": "amountADesired",
@@ -207,16 +177,6 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
 						"name": "user",
 						"type": "address"
 					}
@@ -233,28 +193,17 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"name": "getReserves",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "reserveA",
+						"name": "",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "reserveB",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -263,16 +212,6 @@
 			},
 			{
 				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					},
 					{
 						"internalType": "uint256",
 						"name": "liquidity",
@@ -328,9 +267,9 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "address[]",
-						"name": "path",
-						"type": "address[]"
+						"internalType": "bool",
+						"name": "swapAToB",
+						"type": "bool"
 					},
 					{
 						"internalType": "address",
@@ -343,15 +282,54 @@
 						"type": "uint256"
 					}
 				],
-				"name": "swapExactTokensForTokens",
+				"name": "swap",
 				"outputs": [
 					{
-						"internalType": "uint256[]",
-						"name": "amounts",
-						"type": "uint256[]"
+						"internalType": "uint256",
+						"name": "amountOut",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenA",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokenB",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -365,6 +343,7 @@
 			},
 			"kind": "dev",
 			"methods": {},
+			"title": "SimpleSwap - Minimal DEX for Single Token Pair",
 			"version": 1
 		},
 		"userdoc": {
@@ -447,11 +426,11 @@
 			]
 		},
 		"simpleswap.sol": {
-			"keccak256": "0x945affbe8d26190aa49b330db46f149cd7d54904fa63cea9bebc3df976c54d1f",
+			"keccak256": "0x4fe017134e976dc05535ba17fcfa31ab4918bdb3ba46c7a1cbee900d9deda2b2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c2a7d4f3fbee9b2bbf69d95d6115a6d50f583128985bc4e7ae25766e55855060",
-				"dweb:/ipfs/Qmb7MCbMbQgPxVk2k9RsRFTGi9ptdankBrQoA4b9QAHG5B"
+				"bzz-raw://7684e60fe73117a465f9b35a77eca300b0d81706dc38f22dfefa8b092a488151",
+				"dweb:/ipfs/QmXRFM3yTArS2bhR9RoEmj7be6HbyGjaPh7xrQNHbACQVV"
 			]
 		}
 	},

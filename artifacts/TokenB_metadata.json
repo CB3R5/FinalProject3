@@ -533,7 +533,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"TokenA.sol": "tokenA"
+			"TokenB.sol": "TokenB"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -596,12 +596,12 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"TokenA.sol": {
-			"keccak256": "0x65c0a1dd3e38d18dc4252f1f50847d8cafe51c92b52e4d8a658eb6434ebdfbcc",
+		"TokenB.sol": {
+			"keccak256": "0x6e3393012ab0020f95d49cf267b74ccde2e55fb1a7d88b0f4ae60c2756ed0bad",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a7e4b55f801bd493f951b5fc8e5e2c6abe72a80a766cc6019a4ae49573d5d84c",
-				"dweb:/ipfs/QmUSLHzsjb2m35hYq9yZTj7qGu257qffsN3xeK6tUizsWm"
+				"bzz-raw://86fa5bcfdc5e2d84942f5c4ebb9dffaf6d82c902c2a5f40bdd37927ca035d402",
+				"dweb:/ipfs/QmcZuEDgceJMfuBnFQsEcU4CTTqB1BWCCp822yQqyzduqN"
 			]
 		}
 	},
