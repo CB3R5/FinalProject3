@@ -414,17 +414,7 @@
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"details": {
-				"constantOptimizer": true,
-				"cse": true,
-				"deduplicate": true,
-				"inliner": true,
-				"jumpdestRemover": true,
-				"orderLiterals": true,
-				"peephole": true,
-				"simpleCounterForLoopUncheckedIncrement": true,
-				"yul": false
-			},
+			"enabled": true,
 			"runs": 200
 		},
 		"remappings": [],
