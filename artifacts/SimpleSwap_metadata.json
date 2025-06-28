@@ -385,6 +385,7 @@
 			}
 		],
 		"devdoc": {
+			"details": "Inspired by Uniswap v1 with simplified features",
 			"errors": {
 				"SafeERC20FailedOperation(address)": [
 					{
@@ -393,14 +394,108 @@
 				]
 			},
 			"kind": "dev",
-			"methods": {},
+			"methods": {
+				"addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256)": {
+					"params": {
+						"amountADesired": "Desired amount of tokenA to add",
+						"amountAMin": "Minimum acceptable amount of tokenA",
+						"amountBDesired": "Desired amount of tokenB to add",
+						"amountBMin": "Minimum acceptable amount of tokenB",
+						"deadline": "Transaction expiry timestamp",
+						"to": "Address to receive LP tokens",
+						"tokenA": "First token in pair",
+						"tokenB": "Second token in pair"
+					},
+					"returns": {
+						"amountA": "Actual amount of tokenA added",
+						"amountB": "Actual amount of tokenB added",
+						"liquidity": "Amount of LP tokens minted"
+					}
+				},
+				"balanceOf(address,address,address)": {
+					"params": {
+						"tokenA": "First token in pair",
+						"tokenB": "Second token in pair",
+						"user": "Address to check balance for"
+					},
+					"returns": {
+						"_0": "LP token balance of the user"
+					}
+				},
+				"getAmountOut(uint256,address,address)": {
+					"params": {
+						"amountIn": "Input token amount",
+						"tokenIn": "Input token address",
+						"tokenOut": "Output token address"
+					},
+					"returns": {
+						"_0": "Output token amount"
+					}
+				},
+				"getReserves(address,address)": {
+					"params": {
+						"tokenA": "First token in pair",
+						"tokenB": "Second token in pair"
+					},
+					"returns": {
+						"reserveA": "Reserve amount of tokenA",
+						"reserveB": "Reserve amount of tokenB"
+					}
+				},
+				"removeLiquidity(address,address,uint256,uint256,uint256,address,uint256)": {
+					"params": {
+						"amountAMin": "Minimum acceptable amount of tokenA",
+						"amountBMin": "Minimum acceptable amount of tokenB",
+						"deadline": "Transaction expiry timestamp",
+						"liquidity": "Amount of LP tokens to burn",
+						"to": "Address to receive underlying tokens",
+						"tokenA": "First token in pair",
+						"tokenB": "Second token in pair"
+					},
+					"returns": {
+						"amountA": "Amount of tokenA received",
+						"amountB": "Amount of tokenB received"
+					}
+				},
+				"swapExactTokensForTokens(uint256,uint256,address[],address,uint256)": {
+					"params": {
+						"amountIn": "Exact input amount",
+						"amountOutMin": "Minimum acceptable output amount",
+						"deadline": "Transaction expiry timestamp",
+						"path": "Array with 2 elements: [inputToken, outputToken]",
+						"to": "Address to receive output tokens"
+					},
+					"returns": {
+						"amounts": "Array with input and output amounts"
+					}
+				}
+			},
 			"title": "SimpleSwap - Decentralized Exchange Contract",
 			"version": 1
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {},
-			"notice": "Minimal DEX with liquidity provision and token swap",
+			"methods": {
+				"addLiquidity(address,address,uint256,uint256,uint256,uint256,address,uint256)": {
+					"notice": "Add liquidity to a pool"
+				},
+				"balanceOf(address,address,address)": {
+					"notice": "Get user's LP token balance for a pair"
+				},
+				"getAmountOut(uint256,address,address)": {
+					"notice": "Calculate output amount for a given input"
+				},
+				"getReserves(address,address)": {
+					"notice": "Get current reserves for a token pair"
+				},
+				"removeLiquidity(address,address,uint256,uint256,uint256,address,uint256)": {
+					"notice": "Remove liquidity from a pool"
+				},
+				"swapExactTokensForTokens(uint256,uint256,address[],address,uint256)": {
+					"notice": "Execute a token swap"
+				}
+			},
+			"notice": "Minimal DEX implementation with liquidity provision and token swap functionality",
 			"version": 1
 		}
 	},
@@ -478,11 +573,11 @@
 			]
 		},
 		"simpleswap.sol": {
-			"keccak256": "0x47d93681fa46c093486e84bc360373c0fc4cb89139a5b7e6f092cdd47bbbb624",
+			"keccak256": "0xa1d8a55dc4f29f0e3cc2d2d44cedbf5dca03d5168a264a74ec9638023ab85786",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fc19f0fbe073cb84eed8eac4b226a3ec3b9fc0f45a48def7edc5e38ef0c07ec6",
-				"dweb:/ipfs/QmXwU8yys19XuCbKZKduNH7NNgfk3UchQb1fMb5Z16yMDh"
+				"bzz-raw://90194d80f8d1d0c842c9636cdd2a29b70f4eade584c4be6a76e8814645858d90",
+				"dweb:/ipfs/QmdRSGPewTaMkqtfrHNuH6QDE58wkuoW8F9EpNHEwz5Rpf"
 			]
 		}
 	},
