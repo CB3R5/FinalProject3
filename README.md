@@ -1,80 +1,80 @@
 # FinalProject3
 
-Un contrato inteligente inspirado en Uniswap que permite agregar/remover liquidez e intercambiar tokens ERC20 sin depender de ningún protocolo externo.
+A smart contract inspired by Uniswap that allows adding/removing liquidity and swapping ERC20 tokens without relying on any external protocol.
 
-> Proyecto final del Módulo 3 - Formación de Builders en EthKipu
+> Final project for Module 3 - Builder Training at EthKipu
 
-## ✨ Características
+## Features
 
-- Agregado y remoción de liquidez con cálculo proporcional.
-- Swaps entre dos tokens con fee del 0.3% (Uniswap style).
-- Mantenimiento automático de reservas.
-- Cálculo de precios (`getAmountOut`, `_getAmountIn`).
-- Protección contra reentradas (`ReentrancyGuard`).
-- Uso seguro de tokens con `SafeERC20`.
-- Eventos para trazabilidad on-chain.
+- Add and remove liquidity with proportional calculations
+- Token swaps with 0.3% fee (Uniswap style)
+- Automatic reserve maintenance
+- Price calculations (`getAmountOut`, `_getAmountIn`)
+- Reentrancy protection (`ReentrancyGuard`)
+- Secure token handling with `SafeERC20`
+- Events for on-chain traceability
 
 ---
 
-## 🔧 Funcionalidades
+## Functionalities
 
 ### `addLiquidity(...)`
-Permite a un proveedor agregar tokens a un par y recibir tokens de liquidez como representación de su participación.
+Allows a provider to add tokens to a pair and receive liquidity tokens representing their share.
 
 ### `removeLiquidity(...)`
-Permite retirar liquidez y recibir los tokens subyacentes, en proporción al pool.
+Allows withdrawing liquidity and receiving the underlying tokens in proportion to the pool.
 
 ### `swapExactTokensForTokens(...)`
-Realiza un swap entre dos tokens compatibles, aplicando un fee de 0.3% y asegurando un mínimo de salida (`slippage control`).
+Executes a swap between two compatible tokens, applying a 0.3% fee and ensuring a minimum output (`slippage control`).
 
 ### `getReserves(...)`
-Devuelve las reservas actuales del par de tokens.
+Returns the current reserves of the token pair.
 
 ### `balanceOf(...)`
-Muestra el balance de tokens de liquidez del usuario para un par específico.
+Shows a user's liquidity token balance for a specific pair.
 
 ---
 
-## 📘 Uso
+## Usage
 
-### Despliegue
+### Deployment
 
-Este contrato está pensado para la red de prueba Sepolia. Puedes desplegarlo con herramientas como **Hardhat**, **Foundry** o **Remix**.
+This contract is designed for the Sepolia test network. You can deploy it using tools like **Hardhat**, **Foundry**, or **Remix**.
 
-Ejemplo en Remix:
-1. Cargar el contrato y compilar con Solidity ^0.8.20 o ^0.8.30.
-2. Desplegar con un wallet conectado a Sepolia (ej: MetaMask).
-3. Usar la interfaz para agregar liquidez y realizar swaps.
-
----
-
-## ✅ Requisitos del Módulo 3 (✔️ Cumplidos)
-
-| Requisito                                        | Cumplido |
-|--------------------------------------------------|----------|
-| Agregar/remover liquidez                        | ✅       |
-| Swap exacto entre dos tokens                    | ✅       |
-| Uso de SafeERC20                                | ✅       |
-| Funciones de precio (`getAmountOut`, `_getAmountIn`) | ✅   |
-| Seguridad contra reentradas                     | ✅       |
-| Código limpio, legible y modular                | ✅       |
-| Eventos para seguimiento                        | ✅       |
+Example in Remix:
+1. Load the contract and compile with Solidity ^0.8.20 or ^0.8.30
+2. Deploy with a wallet connected to Sepolia (e.g., MetaMask)
+3. Use the interface to add liquidity and perform swaps
 
 ---
 
-## 🧪 Tests y Validación
+## Module 3 Requirements
 
-> Puedes probarlo en Remix o extenderlo con tests automatizados usando Hardhat o Foundry.
-
-Ejemplo de prueba manual en Remix:
-1. Llamar a `addLiquidity(...)` con dos tokens ERC20 desplegados.
-2. Ejecutar un `swapExactTokensForTokens(...)` asegurando el `amountOutMin`.
-3. Verificar reservas con `getReserves(...)`.
-4. Remover liquidez y verificar balances.
+| Requirement                                      | Completed |
+|--------------------------------------------------|-----------|
+| Add/remove liquidity                            | ✔         |
+| Exact swap between two tokens                   | ✔         |
+| Use of SafeERC20                                | ✔         |
+| Price functions (`getAmountOut`, `_getAmountIn`) | ✔         |
+| Reentrancy protection                           | ✔         |
+| Clean, readable, and modular code               | ✔         |
+| Events for tracking                             | ✔         |
 
 ---
 
-## 📎 Referencias
+## Testing and Validation
+
+You can test it in Remix or extend it with automated tests using Hardhat or Foundry.
+
+Manual testing example in Remix:
+1. Call `addLiquidity(...)` with two deployed ERC20 tokens
+2. Execute `swapExactTokensForTokens(...)` ensuring `amountOutMin`
+3. Verify reserves with `getReserves(...)`
+4. Remove liquidity and verify balances
+
+---
+
+## References
 
 - [Uniswap Whitepaper](https://uniswap.org/whitepaper-v2.pdf)
 - [OpenZeppelin Contracts](https://docs.openzeppelin.com/contracts/4.x/)
@@ -82,8 +82,8 @@ Ejemplo de prueba manual en Remix:
 
 ---
 
-## 🛠️ Autor
+## Author
 
 Leonel Cabral  
-Builder de contratos inteligentes  
-Formación EthKipu · Módulo 3 · 2025  
+Smart Contract Builder  
+EthKipu Training · Module 3 · 2025  
