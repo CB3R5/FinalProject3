@@ -110,7 +110,7 @@ Parameters:
 | amountA        | 100000000000000000000 (100 TokenB)                  |
 | amountB        | 100000000000000000000 (100 tokenB)                  |
 | amountIn       | 10000000000000000000 (10 tokenA for swap)           |
-| author         | "CABRAL Leonel" (Your name as string)               |
+| author         | "CABRAL Leonel" (My data as string)                 |
 
 If everything is correct, the `verify()` function will execute successfully and log your author name.
 
