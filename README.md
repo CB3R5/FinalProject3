@@ -23,6 +23,9 @@ Core AMM contract implementing:
 * `getAmountOut`: Calculates how many tokens will be received in a swap.
 
 ---
+## Contract Verification
+
+This `simpleswap.sol` - `tokena.sol` - `tokenb.sol` contracts was flattened before verification on Sepolia Etherscan. This was necessary due to the use of OpenZeppelin imports, which require a single-file format for proper contract verification.
 
 ## Deployment Steps
 
@@ -46,12 +49,14 @@ The `verify()` function expects that the `SwapVerifier` contract already holds e
 
 Mint tokenA and tokenB from your wallet to `SwapVerifier`:
 
-Use the `mint(address to, uint256 amount)` function on both token contracts.
+Function: `mint`
 
 Parameters:
 
-* `to`: `0x9f8F02DAB384DDdf1591C3366069Da3Fb0018220` (SwapVerifier address)
-* `amount`: `1000000000000000000000` (1000 tokens, assuming 18 decimals)
+| Field          | Value                                                             |
+| -------------- | ----------------------------------------------------------------- |
+| to             | 0x9f8F02DAB384DDdf1591C3366069Da3Fb0018220 (SwapVerifier Address) |
+| amount         | 1000000000000000000000 (1000 tokens)                              |
 
 Ensure that both tokens are successfully minted and that `balanceOf(SwapVerifier)` returns enough balance.
 
@@ -63,8 +68,10 @@ Function: `approve`
 
 Parameters:
 
-* `spender`: `0x39Ab6BCC04e85182fd1323b306F9F7900EC5Be10` (SimpleSwap address)
-* `amount`: `1000000000000000000000` (1000 tokens)
+| Field          | Value                                                           |
+| -------------- | --------------------------------------------------------------- |
+| spender        | 0x39Ab6BCC04e85182fd1323b306F9F7900EC5Be10 (SimpleSwap Address) |
+| amount         | 1000000000000000000000 (1000 tokens)                            |
 
 Repeat the same process for TokenB
 
@@ -76,34 +83,34 @@ Function: `addLiquidity`
 
 Parameters:
 
-| Field          | Value                                               |
-| -------------- | --------------------------------------------------- |
-| tokenA         | 0xDd79601DF7D1c17F783736d6fE6a87B7D170b0D7          |
-| tokenB         | 0xEA59ca4773DfC00B02B4d49AF911906550057ead          |
-| amountADesired | 100000000000000000000 (100 TokenA)                  |
-| amountBDesired | 100000000000000000000 (100 TokenB)                  |
-| amountAMin     | 100000000000000000000 (0 slippage)                  |
-| amountBMin     | 100000000000000000000 (0 slippage)                  |
-| to             | 0x790FD2ECf5eDAb4FCb651A0dCa41f2E4dc673ccC (wallet) |
-| deadline       | 9999999999 (far future timestamp)                   |
+| Field          | Value                                                           |
+| -------------- | --------------------------------------------------------------- |
+| tokenA         | 0xDd79601DF7D1c17F783736d6fE6a87B7D170b0D7                      |
+| tokenB         | 0xEA59ca4773DfC00B02B4d49AF911906550057ead                      |
+| amountADesired | 100000000000000000000 (100 TokenA)                              |
+| amountBDesired | 100000000000000000000 (100 TokenB)                              |
+| amountAMin     | 100000000000000000000 (0 slippage)                              |
+| amountBMin     | 100000000000000000000 (0 slippage)                              |
+| to             | 0x790FD2ECf5eDAb4FCb651A0dCa41f2E4dc673ccC (My wallet MetaMask) |
+| deadline       | 9999999999 (far future timestamp)                               |
 
 ### Call the `verify()` function
 
 Go to the Write Contract section of the `SwapVerifier` contract and connect with your wallet.
 
-Use the following parameters:
+Function: `verify`
 
-```solidity
-verify(
-  swapContract = 0x39Ab6BCC04e85182fd1323b306F9F7900EC5Be10,
-  tokenA = 0xDd79601DF7D1c17F783736d6fE6a87B7D170b0D7,
-  tokenB = 0xEA59ca4773DfC00B02B4d49AF911906550057ead,
-  amountA = 100000000000000000000,       // 100 tokenA
-  amountB = 100000000000000000000,       // 100 tokenB
-  amountIn = 10000000000000000000,       // 10 tokenA for swap
-  author = "CABRAL Leonel"               // Your name as string
-)
-```
+Parameters:
+
+| Field          | Value                                               |
+| -------------- | --------------------------------------------------- |
+| swapContract   | 0x39Ab6BCC04e85182fd1323b306F9F7900EC5Be10          |
+| tokenA         | 0xDd79601DF7D1c17F783736d6fE6a87B7D170b0D7          |
+| tokenB         | 0xEA59ca4773DfC00B02B4d49AF911906550057ead          |
+| amountA        | 100000000000000000000 (100 TokenB)                  |
+| amountB        | 100000000000000000000 (100 tokenB)                  |
+| amountIn       | 10000000000000000000 (10 tokenA for swap)           |
+| author         | "CABRAL Leonel" (Your name as string)               |
 
 If everything is correct, the `verify()` function will execute successfully and log your author name.
 
